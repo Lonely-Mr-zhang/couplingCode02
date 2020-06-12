@@ -36,4 +36,21 @@ public class BeanFactory {
         }
     }
 
+    /**
+     * 根据beanName获取Bean对象
+     *
+     * @param beanName
+     * @return
+     */
+    public static Object getBean(String beanName){
+        Object bean = null;
+        try {
+            String beanPath = properties.getProperty(beanName);
+            bean = Class.forName(beanPath).newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bean;
+    }
+
 }
