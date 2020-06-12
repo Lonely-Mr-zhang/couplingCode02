@@ -2,6 +2,7 @@ package io.github.lonelyMrZhang.service.impl;
 
 import io.github.lonelyMrZhang.dao.IAccountDao;
 import io.github.lonelyMrZhang.dao.impl.AccountDaoImpl;
+import io.github.lonelyMrZhang.factory.BeanFactory;
 import io.github.lonelyMrZhang.service.IAccountService;
 
 /**
@@ -11,7 +12,8 @@ import io.github.lonelyMrZhang.service.IAccountService;
  */
 public class AccountServiceImpl implements IAccountService {
 
-    private IAccountDao accountDao = new AccountDaoImpl();
+//    private IAccountDao accountDao = new AccountDaoImpl();
+    private IAccountDao accountDao = (IAccountDao) BeanFactory.getBean("accountDao");
 
     public void saveAccount() {
         accountDao.saveAccount();

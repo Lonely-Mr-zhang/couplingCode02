@@ -1,5 +1,6 @@
 package io.github.lonelyMrZhang.ui;
 
+import io.github.lonelyMrZhang.factory.BeanFactory;
 import io.github.lonelyMrZhang.service.IAccountService;
 import io.github.lonelyMrZhang.service.impl.AccountServiceImpl;
 
@@ -10,7 +11,8 @@ import io.github.lonelyMrZhang.service.impl.AccountServiceImpl;
  */
 public class Client {
     public static void main(String[] args) {
-        IAccountService accountService = new AccountServiceImpl();
+//        IAccountService accountService = new AccountServiceImpl();
+        IAccountService accountService = (IAccountService) BeanFactory.getBean("accountService");
         accountService.saveAccount();
     }
 }
