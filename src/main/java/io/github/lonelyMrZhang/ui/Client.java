@@ -12,7 +12,9 @@ import io.github.lonelyMrZhang.service.impl.AccountServiceImpl;
 public class Client {
     public static void main(String[] args) {
 //        IAccountService accountService = new AccountServiceImpl();
-        IAccountService accountService = (IAccountService) BeanFactory.getBean("accountService");
-        accountService.saveAccount();
+        for (int i = 0; i < 5; i++) {
+            IAccountService accountService = (IAccountService) BeanFactory.getBean("accountService");
+            accountService.saveAccount();
+        }
     }
 }

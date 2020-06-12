@@ -15,7 +15,11 @@ public class AccountServiceImpl implements IAccountService {
 //    private IAccountDao accountDao = new AccountDaoImpl();
     private IAccountDao accountDao = (IAccountDao) BeanFactory.getBean("accountDao");
 
+    int i = 0;
+
     public void saveAccount() {
         accountDao.saveAccount();
+        i++;
+        System.out.println(i);
     }
 }
