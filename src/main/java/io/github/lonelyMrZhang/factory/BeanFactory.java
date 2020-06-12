@@ -12,9 +12,9 @@ import java.util.Properties;
 public class BeanFactory {
 
     /**
+     * 分析：
      * Bean: 在计算机英语中有可重用组件的含义
      * javaBean：用java语言编写的可重用组件，javaBean > 类
-     *
      *
      * BeanFactory就是用来创建service和dao对象的
      *
@@ -22,13 +22,15 @@ public class BeanFactory {
      * 1、需要一个配置文件来配置我们的service和dao，配置文件的内容：唯一标识ID=全限定类名（KV健值对）
      * 2、通过读取配置文件中配置，反射创建对象
      *
-     *
      * 配置文件可以是xml也可以是properties
      */
+
     private static Properties properties;
+    //初始化配置文件对象
     static {
         try {
             properties = new Properties();
+            //避免使用 new File()的方式，因为文件路径不好控制
             InputStream in = BeanFactory.class.getClassLoader().getResourceAsStream("bean.properties");
             properties.load(in);
         } catch (Exception e) {
